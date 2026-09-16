@@ -1,0 +1,9 @@
+{
+  "info": { "name": "Sonora API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:5000" }],
+  "item": [
+    { "name": "Health", "request": { "method": "GET", "url": "{{baseUrl}}/api/health" } },
+    { "name": "Voices", "request": { "method": "GET", "url": "{{baseUrl}}/api/voices" } },
+    { "name": "Generate speech", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"text\": \"Hello from Sonora.\",\n  \"language\": \"en-US\",\n  \"voice\": \"en-US-female\"\n}" }, "url": "{{baseUrl}}/api/tts" } }
+  ]
+}
