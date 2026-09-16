@@ -3,7 +3,7 @@ services:
     name: sonora-api
     runtime: node
     rootDir: server
-    buildCommand: npm install
+    buildCommand: npm ci
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
@@ -14,4 +14,12 @@ services:
       - key: ELEVENLABS_API_KEY
         sync: false
       - key: ELEVENLABS_VOICE_ID
+        sync: false
+  - type: static
+    name: sonora-frontend
+    rootDir: client
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
         sync: false
