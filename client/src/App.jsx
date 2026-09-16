@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AudioLines, Check, ChevronDown, CircleAlert, Download, FileText, Headphones, LoaderCircle, Pause, Play, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 
-const API = '/api';
+const API = import.meta.env.VITE_API_URL || '/api';
 const MAX = 5000;
 const fallbackLanguages = [
   { code: 'en-US', name: 'English (US)' }, { code: 'en-GB', name: 'English (UK)' }, { code: 'hi-IN', name: 'Hindi' },

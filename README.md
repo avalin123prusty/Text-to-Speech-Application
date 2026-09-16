@@ -18,6 +18,16 @@ Open `http://localhost:5173`.
 
 The default mode uses the browser Speech Synthesis API, so the app is usable immediately. To enable MP3 generation and downloading, set `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID` in `server/.env`. Credentials remain server-side and are never sent to the React client.
 
+## Deploy to Render and Vercel
+
+1. Push this repository to GitHub.
+2. In Render, create a Blueprint from the repository. Render reads `render.yaml` and creates `sonora-api`. Copy its public URL, such as `https://sonora-api.onrender.com`.
+3. In Vercel, import the same repository, set **Root Directory** to `client`, and deploy.
+4. In Vercel Project Settings > Environment Variables, add `VITE_API_URL=https://sonora-api.onrender.com`, then redeploy.
+5. In Render environment variables, set `CLIENT_ORIGIN` to your Vercel URL, such as `https://your-project.vercel.app`, then redeploy the API.
+
+The frontend uses `VITE_API_URL` for the production API. The backend uses Render's `PORT` automatically. Never put ElevenLabs credentials in Vercel; add them only to Render environment variables.
+
 ## API
 
 - `GET /api/health` returns server and provider status.
